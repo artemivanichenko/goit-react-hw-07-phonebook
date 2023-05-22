@@ -2,13 +2,10 @@ import PropTypes from 'prop-types';
 import { ContactInput } from 'components/ContactInput/ContactInput';
 import { StyledBtnForm, StyledForm } from './ContactForm.styled';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
 
 export const ContactForm = ({ onSubmit }) => {
-  const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-
   const handleChange = e => {
     switch (e.target.name) {
       case 'name':
@@ -23,10 +20,9 @@ export const ContactForm = ({ onSubmit }) => {
   };
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(onSubmit({ name, phone: number }));
+    onSubmit({ name, phone: number });
     setName('');
     setNumber('');
-    // e.target.reset();
   };
 
   return (
