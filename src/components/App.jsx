@@ -9,13 +9,11 @@ export const App = () => {
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
   const contacts = useSelector(selectContacts);
-  console.log(contacts);
 
   useEffect(() => {
     dispatch(fetchContactsThunk());
   }, [dispatch]);
   const filterChange = e => {
-    console.log(e.target.value);
     dispatch(filterContact(e.target.value));
   };
   const handleAddContact = ({ name, phone }) => {
@@ -32,15 +30,12 @@ export const App = () => {
     if (filter) {
       console.log(filter);
       const normalizedFilter = filter.toLowerCase();
-      console.log(normalizedFilter);
       return contacts.filter(contact =>
         contact.name.toLowerCase().includes(normalizedFilter)
       );
     }
-    console.log(contacts);
     return contacts;
   };
-
   return (
     <>
       <Section title="PhoneBook">

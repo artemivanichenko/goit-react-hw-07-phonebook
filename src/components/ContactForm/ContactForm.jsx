@@ -48,7 +48,6 @@ export const ContactForm = ({ onSubmit }) => {
         <br />
         <StyledBtnForm type="submit">Add Contact</StyledBtnForm>
       </StyledForm>
-      ;
     </>
   );
 };
